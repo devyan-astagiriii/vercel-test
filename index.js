@@ -2,6 +2,7 @@ import express from "express";
 import { createServer } from "http";
 import { Server } from "socket.io";
 import cors from "cors"
+const PORT = 3000
 
 import { addUser, removeUser, getUser, getUsersInRoom } from "./users.js";
 
@@ -52,4 +53,7 @@ io.on("connection", (socket) => {
   });
 });
 
-httpServer.listen(5000);
+httpServer.listen(PORT, err => {
+  if(err) throw err;
+  console.log("%c Server running", "color: green");
+});
