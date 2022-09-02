@@ -13,6 +13,9 @@ const io = new Server(httpServer, {
 });
 
 app.use(cors())
+app.get('/', (req, res) => {
+  res.send('Online')
+})
 
 io.on("connection", (socket) => {
   console.log("connected");
